@@ -1,0 +1,61 @@
+header{
+	font: 55px Helvetica, blue, center;
+    color: #337aee;
+    text-align: center;
+}
+
+body {
+    color: black;
+    font-size: 100%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body {
+	display:none;
+    margin: 5px;
+
+}
+
+.emails {
+    font-family: "Verdana";
+	font-size: 12px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.emails:hover{
+    background-color: grey; 
+}
+
+.sender {
+    font-family: "Verdana";
+    color: #337aee;
+    font-size: 14;
+    font-weight: bold;
+    margin: 5px;
+}
+.subject{
+    margin-left: 5px;
+}
+.date {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+#inbox{
+	color: black;
+	text-align: center;
+	font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px;
+    border: 1px solid black;
+    width: 25%;
+}
