@@ -43,6 +43,23 @@
         //creates and displays number of messages
         var count=document.getElementById('inbox');
         count.innerHTML= "You have " + geemails.length + " messages";
+
+        var clickMessage=document.getElementsByClassName('emails'); 
+        //creates loop to open body when message is clicked.
+        for (var i=0; i clickMessage.length; i++){
+          clickMessage[i].addEventListener('click',showbody);
+        }
+          
+        //creates function to open or close body of messages
+        function showbody(){
+          var msg=this.querySelectorAll('.body')[0];
+          if (msg.style.display=== 'none'){
+             msg.style.display = 'block';
+          }
+          else{
+             msg.style.display = 'none';
+          }
+        }
     </script>
   </head>
   <body>
