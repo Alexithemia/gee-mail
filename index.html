@@ -2,8 +2,46 @@
   <head>
     <script src="js/mail-generator.js"></script>
     <link href="css/style.css" rel="stylesheet" media="screen">
+    <script>
+    window.onload = function(){
+          //pull
+          console.log(geemails);
+        //loops, goes through the array of objects in geemails, all 10 objects.
+        for(var i=0; i<geemails.length; i++){
+                  
+          //pulls the the associated property from the array of each object
+          console.log(geemails[i].sender); 
+          console.log(geemails[i].subject); 
+          console.log(geemails[i].date); 
+          console.log(geemails[i].body); 
+          //creates emaildata and adds it to the main div.
+          var emaildata=document.createElement('div'); 
+          emaildata.className="emails";
+          main.appendChild(emaildata);
+          //creates and displays senderInfo
+          var senderInfo=document.createElement('div');
+          senderInfo.className='sender';
+          senderInfo.innerHTML=geemails[i].sender;
+          emaildata.appendChild(senderInfo);
+          //creates and displays subjectInfo
+          var subjectInfo=document.createElement('div');
+          subjectInfo.className='subject';
+          subjectInfo.innerHTML=geemails[i].subject;
+          emaildata.appendChild(subjectInfo);
+          //creates and displays dateInfo
+          var dateInfo=document.createElement('div');
+          dateInfo.className='date';
+          dateInfo.innerHTML=geemails[i].date;
+          emaildata.appendChild(dateInfo);
+          //creates and displays bodyInfo
+          var bodyInfo=document.createElement('div');
+          bodyInfo.className='body';
+          bodyInfo.innerHTML=geemails[i].body;
+          emaildata.appendChild(bodyInfo);
+                          
+        }
+    </script>
   </head>
-  
   <body>
     <header>Geemail</header>
     <div id="main"></div>
