@@ -2,7 +2,7 @@
   <head>
     <script src="js/mail-generator.js"></script>
     <link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
+    <script>  
     window.onload = function(){
           //pull
           console.log(geemails);
@@ -43,11 +43,11 @@
         //creates and displays number of messages
         var count=document.getElementById('inbox');
         count.innerHTML= "You have " + geemails.length + " messages";
-
-        var clickMessage=document.getElementsByClassName('emails'); 
-        //creates loop to open body when message is clicked.
-        for (var i=0; i clickMessage.length; i++){
-          clickMessage[i].addEventListener('click',showbody);
+          
+        var newEvent=document.getElementsByClassName('emails'); 
+        //creates loop to open body when clicked.
+        for (var i=0; i<newEvent.length; i++){
+          newEvent[i].addEventListener('click',showbody);
         }
           
         //creates function to open or close body of messages
@@ -60,11 +60,67 @@
              msg.style.display = 'none';
           }
         }
+        //creates and displays a new message         
+        console.log(getNewMessage());
+        function newMessage(){
+          //updates message count
+          var count=document.getElementById('inbox');
+          count.innerHTML = "You have " + (1+geemails.length++) +" messages";
+
+          var youvegotmail=getNewMessage();
+          var emaildata=document.createElement('div');
+          emaildata.className='emails';
+          main.appendChild(emaildata);
+          
+          var senderInfo=document.createElement('div');
+          senderInfo.className='sender';
+          senderInfo.innerHTML=youvegotmail.sender;
+          emaildata.appendChild(senderInfo);
+          
+          var subjectInfo=document.createElement('div');
+          subjectInfo.className='subject';
+          subjectInfo.innerHTML=youvegotmail.subject;
+          emaildata.appendChild(subjectInfo);
+          
+          var dateInfo=document.createElement('div');
+          dateInfo.className='date';
+          dateInfo.innerHTML=youvegotmail.date;
+          emaildata.appendChild(dateInfo);
+          
+          var bodyInfo=document.createElement('div');
+          bodyInfo.className='body';
+          bodyInfo.innerHTML=youvegotmail.body;
+          emaildata.appendChild(bodyInfo);
+          
+          var newEvent=document.getElementsByClassName('emails');
+            
+          for (var i=0; i<newEvent.length; i++){
+            newEvent[i].addEventListener('click', showbody);
+          }
+            
+          function showbody(){
+              var msg=this.querySelectorAll('.body')[0];
+              if (msg.style.display=== 'none'){
+                  msg.style.display = 'block';
+              }
+              else{
+                  msg.style.display = 'none';
+              }
+          }
+        }
+        //recurs the newMessage function every 15 seconds
+        setInterval(newMessage, 15000);
+      }     
     </script>
   </head>
+  
   <body>
-    <header>Geemail</header>
-    <div id="main"></div>
-    <div id="inbox"></div>
+    <header>Gee<img src="geemaillogo.jpg" height="33">ail</header>
+    
+  <div id="main">
+
+    <div id='inbox'>
+    
+  </div>
   </body>
 </html>
