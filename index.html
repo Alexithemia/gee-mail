@@ -49,11 +49,11 @@
 			for (var i=0; i<n; i++){
         	    newEvent[i].addEventListener('click', showbody);
         	}
-        },3000);
+        },1000);
 
         function showbody(){
             var msg=this.querySelectorAll('.body')[0];
-            if (msg.style.display=== 'none'){
+            if (msg.style.display == 'none' || msg.style.display == ''){
                msg.style.display = 'block';
             }
             else{
